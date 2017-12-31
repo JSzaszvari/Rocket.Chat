@@ -101,7 +101,7 @@ Meteor.startup(function() {
 			UserPresence.awayTime = defaultIdleTimeLimit;
 			UserPresence.start();
 		} else {
-			UserPresence.awayTime = user.settings.preferences.idleTimeLimit || defaultIdleTimeLimit;
+			UserPresence.awayTime = user.settings.preferences.idleTimeLimit * 1000 || defaultIdleTimeLimit;
 
 			if (user.settings.preferences.hasOwnProperty('enableAutoAway')) {
 				user.settings.preferences.enableAutoAway && UserPresence.start();

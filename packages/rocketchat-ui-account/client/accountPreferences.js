@@ -76,7 +76,8 @@ Template.accountPreferences.helpers({
 		return RocketChat.getUserPreference(Meteor.user(), 'idleTimeLimit');
 	},
 	defaultIdleTimeLimit() {
-		return RocketChat.settings.get('Accounts_Default_User_Preferences_idleTimeoutLimit');
+		const idleTimeoutLimit = RocketChat.settings.get('Accounts_Default_User_Preferences_idleTimeoutLimit');
+		return idleTimeoutLimit / 60000;
 	},
 	defaultDesktopNotification() {
 		return notificationLabels[RocketChat.settings.get('Accounts_Default_User_Preferences_desktopNotifications')];
